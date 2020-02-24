@@ -1,13 +1,28 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes.json';
-import styles from './Home.css';
 
-export default function Home() {
-  return (
-    <div className={styles.container} data-tid="container">
-      <h2>Home</h2>
-      <Link to={routes.COUNTER}>to Counter</Link>
-    </div>
-  );
-}
+const Wrapper = styled.div`
+  position: absolute;
+  top: 30%;
+  left: 10px;
+  text-align: center;
+`;
+
+const Subtitle = styled.h2`
+  font-size: 5rem;
+`;
+
+const StyledLink = styled(Link)`
+  font-size: 1.4rem;
+`;
+
+const Home = () => (
+  <Wrapper>
+    <Subtitle>Home</Subtitle>
+    <StyledLink to={routes.COUNTER}>to Counter</StyledLink>
+  </Wrapper>
+);
+
+export default Home;
