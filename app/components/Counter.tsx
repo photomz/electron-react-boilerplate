@@ -1,0 +1,81 @@
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import styles from './Counter.css';
+import routes from '../constants/routes.json';
+
+const ActionButton = styled.button`
+  font-size: 1.6rem;
+  font-weight: bold;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  opacity: 0.7;
+  cursor: pointer;
+  font-family: Arial, Helvetica, Helvetica Neue, sans-serif;
+`;
+
+type Props = {
+  increment: () => void;
+  incrementIfOdd: () => void;
+  incrementAsync: () => void;
+  decrement: () => void;
+  counter: number;
+};
+
+const Counter = ({
+  increment,
+  incrementIfOdd,
+  incrementAsync,
+  decrement,
+  counter
+}: Props) => (
+  <div>
+    <div className={styles.backButton} data-tid="backButton">
+      <Link to={routes.HOME}>
+        <i className="fa fa-arrow-left fa-3x" />
+      </Link>
+    </div>
+    <div className={`counter ${styles.counter}`} data-tid="counter">
+      {counter}
+    </div>
+    <div className={styles.btnGroup}>
+      <button
+        className={styles.btn}
+        onClick={increment}
+        data-tclass="btn"
+        type="button"
+      >
+        <i className="fa fa-plus" />
+      </button>
+      <button
+        className={styles.btn}
+        onClick={decrement}
+        data-tclass="btn"
+        type="button"
+      >
+        <i className="fa fa-minus" />
+      </button>
+      <button
+        className={styles.btn}
+        onClick={incrementIfOdd}
+        data-tclass="btn"
+        type="button"
+      >
+        odd
+      </button>
+      <button
+        className={styles.btn}
+        onClick={() => incrementAsync()}
+        data-tclass="btn"
+        type="button"
+      >
+        async
+      </button>
+    </div>
+  </div>
+);
+
+export default Counter;
