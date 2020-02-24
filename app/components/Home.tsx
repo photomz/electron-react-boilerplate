@@ -19,7 +19,7 @@ const StyledLink = styled(Link)`
 `;
 
 const Home = () => (
-  <Wrapper>
+  <Wrapper data-tid="container">
     <Subtitle>Home</Subtitle>
     <StyledLink to={routes.COUNTER}>to Counter</StyledLink>
   </Wrapper>

@@ -59,21 +59,25 @@ const Counter = ({
   counter
 }: CounterProps) => (
   <>
-    <BackButton>
+    <BackButton data-tid="backButton">
       <Link to={routes.HOME}>
         <i className="fa fa-arrow-left fa-3x" />
       </Link>
     </BackButton>
-    <CounterLabel className="counter">{counter}</CounterLabel>
+    <CounterLabel data-tid="counter">{counter}</CounterLabel>
     <ButtonWrapper>
-      <ActionButton onClick={increment}>
+      <ActionButton onClick={increment} data-tclass="btn">
         <i className="fa fa-plus" />
       </ActionButton>
-      <ActionButton onClick={decrement}>
+      <ActionButton onClick={decrement} data-tclass="btn">
         <i className="fa fa-minus" />
       </ActionButton>
-      <ActionButton onClick={incrementIfOdd}>odd</ActionButton>
-      <ActionButton onClick={() => incrementAsync()}>async</ActionButton>
+      <ActionButton onClick={incrementIfOdd} data-tclass="btn">
+        odd
+      </ActionButton>
+      <ActionButton onClick={() => incrementAsync()} data-tclass="btn">
+        async
+      </ActionButton>
     </ButtonWrapper>
   </>
 );
